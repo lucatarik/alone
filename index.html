@@ -5,12 +5,15 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="js/libs/jquery-mobile/jquery.mobile.min.css">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
-        <script type="text/javascript" src="js/libs/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="js/libs/jquery-mobile/jquery.mobile.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="js/jquery-mobile/jquery.mobile.min.css">
+        <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery-mobile/jquery.mobile.min.js"></script>
+
         <title>AloneRPG</title>
+        <style>.tab {
+                width: 25% !important;
+                clear: none !important;  /* Prevent line break */
+            }</style>
     </head>
     <body> 
 
@@ -18,21 +21,67 @@
         <div data-role="page">
 
             <div data-role="header">
-                <h4>Alone RPG</h4>
-                <a href="#defaultpanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-bars"></a>
+                <a href="#defaultpanel" class="ui-btn-right ui-btn ui-icon-bars ui-btn-icon-right ui-btn-inline ui-corner-all ui-mini">&nbsp;</a>
+                <h4>Alone RPG</h4>                
             </div><!-- /header -->
 
-            <div data-role="panel" id="defaultpanel">
+            <div data-role="panel" id="defaultpanel"  data-position="right">
                 <br><br>
                 <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a>
             </div><!-- /panel -->
 
-            <div role="main" class="ui-content">
-                <p>list</p>
+            <div role="main" class="ui-content" >
+                <p class=".content">list</p>
             </div><!-- /content -->
 
-            <div data-role="footer">
-                <h4>Page Footer</h4>
+            <div data-role="footer" data-position="fixed" data-fullscreen="true">
+                <div data-role="tabs" id="tabs">
+                    <div data-role="navbar" style="display:inline">
+                        <ul>
+                            <li class="tab"><a href="#dash" data-ajax="false">Dashbrd</a></li>
+                            <li class="tab"><a href="#story" data-ajax="false">Storyln</a></li>
+                            <li class="tab"><a href="#action" data-ajax="false">Actions</a></li>
+                            <li class="tab"><a href="#other" data-ajax="false">Otherthg</a></li>
+                        </ul>
+                    </div>
+                    <div id="dash">
+                        <center>
+                            <ul data-role="listview" data-inset="true">
+                                <li><fieldset data-role="controlgroup" data-type="horizontal">
+                                        <legend>Answer:</legend>
+                                        <button class="ui-shadow ui-btn ui-corner-all">AI</button>
+                                        <button class="ui-shadow ui-btn ui-corner-all">VU</button>
+                                        <button class="ui-shadow ui-btn ui-corner-all">U</button>
+                                        <button class="ui-shadow ui-btn ui-corner-all">SU</button><br><br>
+                                        <button class="ui-shadow ui-btn ui-corner-all">50/50</button>
+                                        <button class="ui-shadow ui-btn ui-corner-all">SL</button>
+                                        <button class="ui-shadow ui-btn ui-corner-all">L</button>
+                                        <button class="ui-shadow ui-btn ui-corner-all">VL</button>
+                                        <button class="ui-shadow ui-btn ui-corner-all">ST</button>
+                                    </fieldset></li>
+                                    <li><div class="ui-field-contain">
+                                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                                        <input type="text" name="textinput-2" id="textinput-2" placeholder="Roll dice (1d4+2)" value=""><button class="ui-shadow ui-btn ui-corner-all" type="button" id="diceroller">Roll</button>
+                                    </fieldset></div></li>
+                                <li>
+                                    <button class="ui-shadow ui-btn ui-corner-all" type="button" id="submit-2">get Damage</button></li>
+                                <li><a href="#">Cadillac</a></li>
+                                <li><a href="#">Ferrari</a></li>
+                            </ul>
+                        </center>
+                    </div>
+                    <div id="story">
+                        Phasellus aliquet magna id nunc consequat volutpat. Maecenas eget tristique arcu. Ut dignissim suscipit vestibulum. Proin consectetur accumsan augue eget lacinia. Etiam tincidunt dolor a mi tincidunt, ac condimentum diam vestibulum. Donec iaculis eget lacus ut ornare. Cras pretium faucibus nulla, a vulputate nulla.
+
+
+                    </div>
+                    <div id="action">
+                        SFSfsFsffs
+                    </div>
+                    <div id="other">
+                        csScSCSc
+                    </div>                    
+                </div>
             </div><!-- /footer -->
         </div><!-- /page -->
 
