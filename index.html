@@ -12,7 +12,30 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>AloneRPG</title>
     </head>
-    <body>        
+    <body> 
+
+
+        <div data-role="page">
+
+            <div data-role="header">
+                <h4>Alone RPG</h4>
+                <a href="#defaultpanel" class="ui-btn ui-shadow ui-corner-all ui-btn-inline ui-btn-icon-left ui-icon-bars"></a>
+            </div><!-- /header -->
+
+            <div data-role="panel" id="defaultpanel">
+                <br><br>
+                <a href="#demo-links" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a>
+            </div><!-- /panel -->
+
+            <div role="main" class="ui-content">
+                <p>list</p>
+            </div><!-- /content -->
+
+            <div data-role="footer">
+                <h4>Page Footer</h4>
+            </div><!-- /footer -->
+        </div><!-- /page -->
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
