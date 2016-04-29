@@ -6,14 +6,33 @@
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
         <link rel="stylesheet" type="text/css" href="js/jquery-mobile/jquery.mobile.min.css">
+        <script type="text/javascript" src="js/truerand.js"></script>
         <script type="text/javascript" src="js/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/jquery-mobile/jquery.mobile.min.js"></script>
 
         <title>AloneRPG</title>
-        <style>.tab {
-                width: 25% !important;
-                clear: none !important;  /* Prevent line break */
-            }</style>
+        <style>
+            .myfieldset .ui-input-text {
+                float: left;
+            }
+            #tabs .ui-listview>.ui-li-static
+            {
+                padding: 0.1em 1em 0.1em 1em;
+            }
+            #tabs li.ui-li-static {
+                text-align: center;
+            }
+            .ui-controlgroup-controls button.vertical {
+                display: block !important;
+                text-align: center;
+                margin: 0 auto !important;
+                width: 253px !important;
+            }
+            .listviewbtns button
+            {
+                    width: 100px !important;
+            }
+        </style>
     </head>
     <body> 
 
@@ -31,55 +50,96 @@
             </div><!-- /panel -->
 
             <div role="main" class="ui-content" >
-                <p class=".content">list</p>
+                <div class="content">list</div>
             </div><!-- /content -->
 
             <div data-role="footer" data-position="fixed" data-fullscreen="true">
                 <div data-role="tabs" id="tabs">
                     <div data-role="navbar" style="display:inline">
                         <ul>
-                            <li class="tab"><a href="#dash" data-ajax="false">Dashbrd</a></li>
+                            <li class="tab"><a href="#dash" class="ui-btn-active" data-ajax="false">Dashbrd</a></li>
                             <li class="tab"><a href="#story" data-ajax="false">Storyln</a></li>
                             <li class="tab"><a href="#action" data-ajax="false">Actions</a></li>
                             <li class="tab"><a href="#other" data-ajax="false">Otherthg</a></li>
                         </ul>
                     </div>
-                    <div id="dash">
-                        <center>
-                            <ul data-role="listview" data-inset="true">
-                                <li><fieldset data-role="controlgroup" data-type="horizontal">
-                                        <legend>Answer:</legend>
-                                        <button class="ui-shadow ui-btn ui-corner-all">AI</button>
-                                        <button class="ui-shadow ui-btn ui-corner-all">VU</button>
-                                        <button class="ui-shadow ui-btn ui-corner-all">U</button>
-                                        <button class="ui-shadow ui-btn ui-corner-all">SU</button><br><br>
-                                        <button class="ui-shadow ui-btn ui-corner-all">50/50</button>
-                                        <button class="ui-shadow ui-btn ui-corner-all">SL</button>
-                                        <button class="ui-shadow ui-btn ui-corner-all">L</button>
-                                        <button class="ui-shadow ui-btn ui-corner-all">VL</button>
-                                        <button class="ui-shadow ui-btn ui-corner-all">ST</button>
-                                    </fieldset></li>
-                                    <li><div class="ui-field-contain">
-                                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-                                        <input type="text" name="textinput-2" id="textinput-2" placeholder="Roll dice (1d4+2)" value=""><button class="ui-shadow ui-btn ui-corner-all" type="button" id="diceroller">Roll</button>
-                                    </fieldset></div></li>
-                                <li>
-                                    <button class="ui-shadow ui-btn ui-corner-all" type="button" id="submit-2">get Damage</button></li>
-                                <li><a href="#">Cadillac</a></li>
-                                <li><a href="#">Ferrari</a></li>
-                            </ul>
-                        </center>
-                    </div>
-                    <div id="story">
-                        Phasellus aliquet magna id nunc consequat volutpat. Maecenas eget tristique arcu. Ut dignissim suscipit vestibulum. Proin consectetur accumsan augue eget lacinia. Etiam tincidunt dolor a mi tincidunt, ac condimentum diam vestibulum. Donec iaculis eget lacus ut ornare. Cras pretium faucibus nulla, a vulputate nulla.
+                    <div id="dash" style="height: 190px;">
+                        <ul data-role="listview" data-inset="true">
+                            <li>
+                                <fieldset data-role="controlgroup" data-type="horizontal" style="zoom:0.8;">
+                                    <button class="odds ui-shadow ui-btn ui-corner-all" value="10">AI</button>
+                                    <button class="odds ui-shadow ui-btn ui-corner-all" value="20">VU</button>
+                                    <button class="odds ui-shadow ui-btn ui-corner-all" value="30">U</button>
+                                    <button class="odds ui-shadow ui-btn ui-corner-all" value="40">SU</button>
+                                    <button class="odds ui-shadow ui-btn ui-corner-all" value="50">50/50</button>
+                                    <button class="odds ui-shadow ui-btn ui-corner-all" value="60">SL</button>
+                                    <button class="odds ui-shadow ui-btn ui-corner-all" value="70">L</button>
+                                    <button class="odds ui-shadow ui-btn ui-corner-all" value="80">VL</button>
+                                    <button class="odds ui-shadow ui-btn ui-corner-all" value="90">ST</button>
+                                </fieldset>
+                            </li>
+                            <li>
+                                <fieldset class="myfieldset" style="margin: 0;" data-role="controlgroup" data-type="horizontal" data-mini="true">
+                                    <input style="float:left" type="text" name="textinput-2" id="dicerollerval" placeholder="Roll dice (1d4+2)" value="">
+                                    <button style="margin: 5px;0px;0px;5px;" class="ui-shadow ui-btn ui-corner-all" type="button" id="diceroller">Roll</button>
+                                    <span style="clear:both"></span>
+                                </fieldset>
+                            </li>
+                            <li>
+                                <button style="zoom: 0.9;" class="getrand ui-shadow ui-btn ui-corner-all" type="button" id="damage">Damage</button>
+                            </li>
 
+                            <li>
+                                <button style="zoom: 0.9;" class="ui-shadow ui-btn ui-corner-all" type="button" id="clear">Clear</button></li>
 
+                        </ul>
                     </div>
-                    <div id="action">
-                        SFSfsFsffs
+                    <div id="story" style="height: 190px;">
+                        <ul data-role="listview" data-inset="true" class="listviewbtns">
+                            <li>
+                                <br>
+                                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="margin-bottom: 0px;">
+                                    <button class="getrand ui-shadow ui-btn ui-corner-all" type="button" id="quest">Quest</button>
+                                    <button class="getrand ui-shadow ui-btn ui-corner-all" type="button" id="npc">NPC</button>
+                                </fieldset>
+                                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="margin: -1px 0px;">
+                                    <button class="getrand ui-shadow ui-btn ui-corner-all" type="button" id="place">Place</button>
+                                    <button class="getrand ui-shadow ui-btn ui-corner-all" type="button" id="opposition">Opposition</button>
+                                </fieldset>
+                                <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" style="margin: -1px 0px;">
+                                    <button class="getrand ui-shadow ui-btn ui-corner-all" type="button" id="thing">Thing</button>
+                                    <button class="getrand ui-shadow ui-btn ui-corner-all" type="button" id="skill">kill</button>
+                                </fieldset>
+                                <br>
+                            </li>
+                        </ul>
                     </div>
-                    <div id="other">
-                        csScSCSc
+                    <div id="action" style="height: 190px;">
+                        <ul data-role="listview" data-inset="true"  class="listviewbtns">
+                            <li><br>
+                                <fieldset data-role="controlgroup" data-mini="true">
+                                    <button class="getrand ui-shadow ui-btn ui-corner-all vertical" type="button" id="focus">Focus</button>
+                                    <button class="getrand ui-shadow ui-btn ui-corner-all vertical" type="button" id="action">Action</button>
+                                    <button class="getrand ui-shadow ui-btn ui-corner-all vertical" type="button" id="subject">Subject</button>
+                                    <fieldset style="margin-top: 0px;" data-role="controlgroup" data-type="horizontal">
+                                        <button style="border-bottom-width: 1px;" class="getrand ui-shadow ui-btn ui-corner-all" type="button" id="complexdesc">Complex desc</button>
+                                        <button class="getrand ui-shadow ui-btn ui-corner-all" type="button" id="complexqst">Complex question</button>
+                                    </fieldset>
+                                </fieldset>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="other" style="height: 190px;">
+                        <ul data-role="listview" data-inset="true">
+                            <li><br>
+                                <fieldset data-role="controlgroup" data-mini="true">
+                                    <button class="getrand ui-shadow ui-btn ui-corner-all vertical" type="button" id="started">Started</button>
+                                    <button class="getrand ui-shadow ui-btn ui-corner-all vertical" type="button" id="setting">Setting</button>
+                                    <button class="getrand ui-shadow ui-btn ui-corner-all vertical" type="button" id="une-npc">UNE-NPC</button>
+                                    <button class="ui-shadow ui-btn ui-corner-all vertical" type="button" id="cards">Cards</button>
+                                </fieldset>
+                            </li>
+                        </ul>
                     </div>                    
                 </div>
             </div><!-- /footer -->
